@@ -6,11 +6,12 @@ require 'geocoder'
 class FlickrSearch
 
 	def instantiate_flickr_client
-		FlickRaw.api_key="96b125316576679e97cfbe3724d5c697"
-		FlickRaw.shared_secret="3ab86014cbed8070"
+		FlickRaw.api_key="ADD FLICKR KEY"
+		FlickRaw.shared_secret="ADD FLICKR SECRET"
 	end
 
 	def instantiate_new_file
+		@tag = "ADD TAG TO SEARCH"
 		@new_file = "flickr_sketchnotes_no_geo.csv"
 		CSV.open(@new_file, 'ab') do |csv|
 			file = CSV.read(@new_file,:encoding => "iso-8859-1",:col_sep => ",")
@@ -35,7 +36,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2006-01-01', :max_upload_date => '2007-12-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2006-01-01', :max_upload_date => '2007-12-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -49,7 +50,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2007-09-01', :max_upload_date => '2008-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2007-09-01', :max_upload_date => '2008-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -63,7 +64,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2008-09-01', :max_upload_date => '2009-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2008-09-01', :max_upload_date => '2009-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -77,7 +78,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2009-09-01', :max_upload_date => '2010-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2009-09-01', :max_upload_date => '2010-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -91,7 +92,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2010-09-01', :max_upload_date => '2011-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2010-09-01', :max_upload_date => '2011-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -105,7 +106,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2011-09-01', :max_upload_date => '2012-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2011-09-01', :max_upload_date => '2012-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -119,7 +120,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2012-09-01', :max_upload_date => '2013-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2012-09-01', :max_upload_date => '2013-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -133,7 +134,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2013-09-01', :max_upload_date => '2014-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2013-09-01', :max_upload_date => '2014-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -147,7 +148,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2014-09-01', :max_upload_date => '2015-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2014-09-01', :max_upload_date => '2015-08-31', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -161,7 +162,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_nongeo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 0, :content_type => 7, :min_upload_date => '2015-09-01', :max_upload_date => '2016-08-01', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 0, :content_type => 7, :min_upload_date => '2015-09-01', :max_upload_date => '2016-08-01', :per_page => 500, :page => page)
 			sketches_nongeo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -175,7 +176,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2006-01-01', :max_upload_date => '2007-12-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2006-01-01', :max_upload_date => '2007-12-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -189,7 +190,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2007-09-01', :max_upload_date => '2008-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2007-09-01', :max_upload_date => '2008-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -203,7 +204,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2008-09-01', :max_upload_date => '2009-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2008-09-01', :max_upload_date => '2009-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -217,7 +218,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2009-09-01', :max_upload_date => '2010-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2009-09-01', :max_upload_date => '2010-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -231,7 +232,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2010-09-01', :max_upload_date => '2011-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2010-09-01', :max_upload_date => '2011-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -245,7 +246,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2011-09-01', :max_upload_date => '2012-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2011-09-01', :max_upload_date => '2012-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -259,7 +260,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2012-09-01', :max_upload_date => '2013-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2012-09-01', :max_upload_date => '2013-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -273,7 +274,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2013-09-01', :max_upload_date => '2014-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2013-09-01', :max_upload_date => '2014-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -287,7 +288,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2014-09-01', :max_upload_date => '2015-08-31', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2014-09-01', :max_upload_date => '2015-08-31', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -301,7 +302,7 @@ class FlickrSearch
 		sketches_count = 1
 		sketches_geo = []
 		while sketches_count != 0
-			sketches = flickr.photos.search(:tags => "sketchnotes", :has_geo => 1, :content_type => 7, :min_upload_date => '2015-09-01', :max_upload_date => '2016-08-01', :per_page => 500, :page => page)
+			sketches = flickr.photos.search(:tags => @tag, :has_geo => 1, :content_type => 7, :min_upload_date => '2015-09-01', :max_upload_date => '2016-08-01', :per_page => 500, :page => page)
 			sketches_geo << sketches
 			sketches_count = sketches.count
 			page += 1
@@ -380,20 +381,20 @@ class FlickrSearch
 		year1_geo
 		year2_geo
 		year3_geo
-		#year4_geo
-		#year5_geo
-		#year6_geo
-		#year7_geo
-		#year8_geo
-		#year9_geo
-		#year10_geo
+		year4_geo
+		year5_geo
+		year6_geo
+		year7_geo
+		year8_geo
+		year9_geo
+		year10_geo
 	end
 
 end
 
 flickr_call = FlickrSearch.new
 flickr_call.instantiate_flickr_client
-#flickr_call.instantiate_new_file
+flickr_call.instantiate_new_file
 flickr_call.instantiate_new_file_geo
-#flickr_call.make_api_calls
+flickr_call.make_api_calls
 flickr_call.make_geo_api_calls
